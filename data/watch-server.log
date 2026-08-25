@@ -1,0 +1,21 @@
+cn-work-agent listening on http://127.0.0.1:8814
+platforms=feishu,dingtalk,wecom
+rate_limit_per_minute=60
+approval_ttl_seconds=86400
+approvals_max=2000
+cors=deny
+webhook=off
+hmac=off
+watch=poll 300ms
+GET /health  GET /ready  GET /metrics  GET /openapi.json  GET /v1/platforms  GET /v1/config  GET /approvals  GET /v1/approvals.csv  GET /v1/approvals.md  GET /v1/approvals.html  GET /v1/approvals/{id}/card
+audit=/workspace/oss-cash-lab/bets/f-cn-work-agent/data/watch-audit.jsonl
+approvals=/workspace/oss-cash-lab/bets/f-cn-work-agent/data/watch-approvals.jsonl
+watching /workspace/oss-cash-lab/bets/f-cn-work-agent/data/watch-config.json (poll 300ms)
+[http] 127.0.0.1 "GET /health HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /health HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /health HTTP/1.1" 200 -
+regenerated {"approval_ttl_seconds": 120, "approvals_max": 2000, "rate_limit_per_minute": 60, "cors": [], "webhook": false, "hmac": false}
+[http] 127.0.0.1 "GET /health HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /health HTTP/1.1" 200 -
+shutting down
+exit

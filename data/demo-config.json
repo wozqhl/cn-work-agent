@@ -1,0 +1,19 @@
+{
+  "bot_name": "cn-work-bot",
+  "platforms": [
+    "feishu",
+    "dingtalk",
+    "wecom"
+  ],
+  "feishu": {
+    "verify_token": "demo-feishu-token",
+    "encrypt_key": "demo-feishu-encrypt"
+  },
+  "dingtalk": {
+    "token": "demo-dt-token",
+    "secret": "demo-dt-secret"
+  },
+  "wecom": {
+    "token": "demo-wc-token"
+  }
+}

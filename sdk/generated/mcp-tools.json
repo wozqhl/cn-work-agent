@@ -1,0 +1,517 @@
+{
+  "tools": [
+    {
+      "name": "getHealth",
+      "description": "Health check",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-Request-Id": {
+            "type": "string",
+            "maxLength": 128,
+            "example": "mvp-appr-rid-a1b2"
+          }
+        }
+      }
+    },
+    {
+      "name": "getReady",
+      "description": "Readiness (503 while shutting down)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-Request-Id": {
+            "type": "string",
+            "maxLength": 128,
+            "example": "mvp-appr-rid-a1b2"
+          }
+        }
+      }
+    },
+    {
+      "name": "getMetrics",
+      "description": "Prometheus metrics",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-Request-Id": {
+            "type": "string",
+            "maxLength": 128,
+            "example": "mvp-appr-rid-a1b2"
+          }
+        }
+      }
+    },
+    {
+      "name": "getOpenApi",
+      "description": "OpenAPI 3 document",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-Request-Id": {
+            "type": "string",
+            "maxLength": 128,
+            "example": "mvp-appr-rid-a1b2"
+          }
+        }
+      }
+    },
+    {
+      "name": "getPlatforms",
+      "description": "List configured IM platforms",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-Request-Id": {
+            "type": "string",
+            "maxLength": 128,
+            "example": "mvp-appr-rid-a1b2"
+          }
+        }
+      }
+    },
+    {
+      "name": "getConfig",
+      "description": "Redacted runtime config",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-Request-Id": {
+            "type": "string",
+            "maxLength": 128,
+            "example": "mvp-appr-rid-a1b2"
+          }
+        }
+      }
+    },
+    {
+      "name": "postWebhookFeishu",
+      "description": "Feishu webhook (URL verification + messages)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-Request-Id": {
+            "type": "string",
+            "maxLength": 128,
+            "example": "mvp-appr-rid-a1b2"
+          },
+          "X-Lark-Request-Timestamp": {
+            "type": "string"
+          },
+          "X-Lark-Request-Nonce": {
+            "type": "string"
+          },
+          "X-Lark-Signature": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "example": "url_verification"
+          },
+          "challenge": {
+            "type": "string"
+          },
+          "token": {
+            "type": "string"
+          },
+          "text": {
+            "description": "Message text (string or nested)",
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "postWebhookDingtalk",
+      "description": "DingTalk webhook",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-Request-Id": {
+            "type": "string",
+            "maxLength": 128,
+            "example": "mvp-appr-rid-a1b2"
+          },
+          "X-DingTalk-Timestamp": {
+            "type": "string"
+          },
+          "X-DingTalk-Sign": {
+            "type": "string"
+          },
+          "token": {
+            "type": "string"
+          },
+          "text": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "content": {
+                    "type": "string"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "getWebhookWecom",
+      "description": "WeCom URL verification (echostr)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-Request-Id": {
+            "type": "string",
+            "maxLength": 128,
+            "example": "mvp-appr-rid-a1b2"
+          },
+          "msg_signature": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          },
+          "nonce": {
+            "type": "string"
+          },
+          "echostr": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "msg_signature",
+          "timestamp",
+          "nonce",
+          "echostr"
+        ]
+      }
+    },
+    {
+      "name": "postWebhookWecom",
+      "description": "WeCom webhook message",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-Request-Id": {
+            "type": "string",
+            "maxLength": 128,
+            "example": "mvp-appr-rid-a1b2"
+          },
+          "msg_signature": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          },
+          "nonce": {
+            "type": "string"
+          },
+          "Content": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "listApprovals",
+      "description": "List approvals",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-Request-Id": {
+            "type": "string",
+            "maxLength": 128,
+            "example": "mvp-appr-rid-a1b2"
+          },
+          "format": {
+            "type": "string",
+            "enum": [
+              "json",
+              "csv",
+              "md",
+              "html"
+            ],
+            "default": "json",
+            "example": "csv"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "approved",
+              "rejected",
+              "expired"
+            ]
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 50
+          }
+        }
+      }
+    },
+    {
+      "name": "getApprovalsCsv",
+      "description": "Approval audit CSV export",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-Request-Id": {
+            "type": "string",
+            "maxLength": 128,
+            "example": "mvp-appr-rid-a1b2"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "approved",
+              "rejected",
+              "expired"
+            ]
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    {
+      "name": "getApprovalsMd",
+      "description": "Approval list Markdown (Feishu/WeCom docs)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-Request-Id": {
+            "type": "string",
+            "maxLength": 128,
+            "example": "mvp-appr-rid-a1b2"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "approved",
+              "rejected",
+              "expired"
+            ]
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    {
+      "name": "getApprovalsHtml",
+      "description": "Approval list HTML (local demo)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-Request-Id": {
+            "type": "string",
+            "maxLength": 128,
+            "example": "mvp-appr-rid-a1b2"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "approved",
+              "rejected",
+              "expired"
+            ]
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    {
+      "name": "getApprovals",
+      "description": "List approvals (json | csv | md | html)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-Request-Id": {
+            "type": "string",
+            "maxLength": 128,
+            "example": "mvp-appr-rid-a1b2"
+          },
+          "format": {
+            "type": "string",
+            "enum": [
+              "json",
+              "csv",
+              "md",
+              "html"
+            ],
+            "default": "json",
+            "example": "csv"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "approved",
+              "rejected",
+              "expired"
+            ]
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 0,
+            "default": 50
+          }
+        }
+      }
+    },
+    {
+      "name": "getApprovalCard",
+      "description": "IM card payload for an approval",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-Request-Id": {
+            "type": "string",
+            "maxLength": 128,
+            "example": "mvp-appr-rid-a1b2"
+          },
+          "id": {
+            "type": "string",
+            "example": "appr_1a2b3c4d5e6f"
+          },
+          "platform": {
+            "type": "string",
+            "enum": [
+              "feishu",
+              "dingtalk",
+              "wecom"
+            ],
+            "example": "feishu"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      }
+    },
+    {
+      "name": "getApproval",
+      "description": "Get one approval",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-Request-Id": {
+            "type": "string",
+            "maxLength": 128,
+            "example": "mvp-appr-rid-a1b2"
+          },
+          "id": {
+            "type": "string",
+            "example": "appr_1a2b3c4d5e6f"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      }
+    },
+    {
+      "name": "decideApprovalGet",
+      "description": "Approve or reject (unsigned GET, demo IM cards)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-Request-Id": {
+            "type": "string",
+            "maxLength": 128,
+            "example": "mvp-appr-rid-a1b2"
+          },
+          "id": {
+            "type": "string",
+            "example": "appr_1a2b3c4d5e6f"
+          },
+          "decision": {
+            "type": "string",
+            "enum": [
+              "approve",
+              "reject"
+            ]
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "decision"
+        ]
+      }
+    },
+    {
+      "name": "decideApproval",
+      "description": "Approve or reject",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "X-Request-Id": {
+            "type": "string",
+            "maxLength": 128,
+            "example": "mvp-appr-rid-a1b2"
+          },
+          "id": {
+            "type": "string",
+            "example": "appr_1a2b3c4d5e6f"
+          },
+          "X-Callback-Signature": {
+            "type": "string",
+            "example": "sha256=0123456789abcdef"
+          },
+          "X-Callback-Timestamp": {
+            "type": "string",
+            "example": "1710000000"
+          },
+          "decision": {
+            "type": "string",
+            "enum": [
+              "approve",
+              "reject"
+            ]
+          },
+          "note": {
+            "type": "string",
+            "example": "ok"
+          }
+        },
+        "required": [
+          "id",
+          "decision"
+        ]
+      }
+    }
+  ]
+}

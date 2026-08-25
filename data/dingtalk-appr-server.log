@@ -1,0 +1,26 @@
+cn-work-agent listening on http://127.0.0.1:8794
+platforms=dingtalk
+rate_limit_per_minute=60
+approval_ttl_seconds=86400
+approvals_max=2000
+cors=deny
+webhook=off
+hmac=off
+forward=off
+watch=off
+GET /health  GET /ready  GET /metrics  GET /openapi.json  GET /v1/platforms  GET /v1/config  GET /approvals  GET /v1/approvals.csv  GET /v1/approvals.md  GET /v1/approvals.html  GET /v1/approvals/{id}/card
+audit=/workspace/oss-cash-lab/bets/f-cn-work-agent/data/dingtalk-appr-audit.jsonl
+approvals=/workspace/oss-cash-lab/bets/f-cn-work-agent/data/dingtalk-appr-approvals.jsonl
+[http] 127.0.0.1 "GET /health HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /health HTTP/1.1" 200 -
+[http] 127.0.0.1 "POST /webhook/dingtalk HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /v1/approvals/appr_6a16ac5d5e2f/card?platform=dingtalk HTTP/1.1" 200 -
+[http] 127.0.0.1 "POST /webhook/dingtalk HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /v1/approvals?status=pending HTTP/1.1" 200 -
+[http] 127.0.0.1 "POST /approvals/appr_6a16ac5d5e2f/decide HTTP/1.1" 200 -
+[http] 127.0.0.1 "POST /approvals/appr_83dec1b96b41/decide HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /v1/approvals?status=pending HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /v1/approvals?status=approved HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /v1/approvals?status=rejected HTTP/1.1" 200 -
+shutting down
+exit

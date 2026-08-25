@@ -1,0 +1,18 @@
+cn-work-agent listening on http://127.0.0.1:8811
+platforms=feishu,dingtalk,wecom
+rate_limit_per_minute=60
+approval_ttl_seconds=86400
+approvals_max=2000
+cors=deny
+webhook=http://127.0.0.1:8810/hook
+hmac=off
+watch=off
+GET /health  GET /ready  GET /metrics  GET /openapi.json  GET /v1/platforms  GET /v1/config  GET /approvals  GET /v1/approvals.csv  GET /v1/approvals.md  GET /v1/approvals.html  GET /v1/approvals/{id}/card
+audit=/workspace/oss-cash-lab/bets/f-cn-work-agent/data/wh-audit.jsonl
+approvals=/workspace/oss-cash-lab/bets/f-cn-work-agent/data/wh-approvals.jsonl
+[http] 127.0.0.1 "GET /health HTTP/1.1" 200 -
+[http] 127.0.0.1 "POST /webhook/feishu HTTP/1.1" 200 -
+[http] 127.0.0.1 "POST /approvals/appr_76e885e5d5d2/decide HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /metrics HTTP/1.1" 200 -
+shutting down
+exit

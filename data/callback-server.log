@@ -1,0 +1,21 @@
+cn-work-agent listening on http://127.0.0.1:8815
+platforms=feishu,dingtalk,wecom
+rate_limit_per_minute=60
+approval_ttl_seconds=86400
+approvals_max=2000
+cors=deny
+webhook=off
+hmac=off
+watch=off
+GET /health  GET /ready  GET /metrics  GET /openapi.json  GET /v1/platforms  GET /v1/config  GET /approvals  GET /v1/approvals.csv  GET /v1/approvals.md  GET /v1/approvals.html  GET /v1/approvals/{id}/card
+audit=/workspace/oss-cash-lab/bets/f-cn-work-agent/data/callback-audit.jsonl
+approvals=/workspace/oss-cash-lab/bets/f-cn-work-agent/data/callback-approvals.jsonl
+[http] 127.0.0.1 "GET /health HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /v1/config HTTP/1.1" 200 -
+[http] 127.0.0.1 "POST /approvals/appr_cbunsign001/decide HTTP/1.1" 401 -
+[http] 127.0.0.1 "POST /approvals/appr_cbbad000001/decide HTTP/1.1" 401 -
+[http] 127.0.0.1 "POST /approvals/appr_cbgood00001/decide HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /approvals/appr_cbget000001/decide?decision=approve HTTP/1.1" 200 -
+[http] 127.0.0.1 "POST /approvals/appr_cbskew00001/decide HTTP/1.1" 401 -
+shutting down
+exit

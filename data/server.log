@@ -1,0 +1,51 @@
+cn-work-agent listening on http://127.0.0.1:8790
+platforms=feishu,dingtalk,wecom
+rate_limit_per_minute=60
+approval_ttl_seconds=86400
+approvals_max=2000
+cors=deny
+webhook=off
+hmac=off
+watch=off
+GET /health  GET /ready  GET /metrics  GET /openapi.json  GET /v1/platforms  GET /v1/config  GET /approvals  GET /v1/approvals.csv  GET /v1/approvals.md  GET /v1/approvals.html  GET /v1/approvals/{id}/card
+audit=/workspace/oss-cash-lab/bets/f-cn-work-agent/data/audit.jsonl
+approvals=/workspace/oss-cash-lab/bets/f-cn-work-agent/data/approvals.jsonl
+[http] 127.0.0.1 "GET /health HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /health HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /ready HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /ready HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /v1/platforms HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /v1/config HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /health HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /health HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /openapi.json HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /health HTTP/1.1" 200 -
+[http] 127.0.0.1 "OPTIONS /health HTTP/1.1" 404 -
+[http] 127.0.0.1 "POST /webhook/feishu HTTP/1.1" 401 -
+[http] 127.0.0.1 "POST /webhook/feishu HTTP/1.1" 200 -
+[http] 127.0.0.1 "POST /webhook/feishu HTTP/1.1" 200 -
+[http] 127.0.0.1 "POST /webhook/dingtalk HTTP/1.1" 401 -
+[http] 127.0.0.1 "POST /webhook/dingtalk HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /webhook/wecom?msg_signature=deadbeef&timestamp=1710000200&nonce=wnonce&echostr=echo-nope HTTP/1.1" 401 -
+[http] 127.0.0.1 "GET /webhook/wecom?msg_signature=0d1fa5a7406f990cf56940bf90dcdf85f42c82c0&timestamp=1710000200&nonce=wnonce-mvp&echostr=echo-mvp-ok HTTP/1.1" 200 -
+[http] 127.0.0.1 "POST /webhook/wecom?msg_signature=1929462f70bdbca4fabed4e3cf0fc73fab18f95b&timestamp=1710000201&nonce=wnonce-mvp-2 HTTP/1.1" 200 -
+[http] 127.0.0.1 "POST /webhook/feishu HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /v1/approvals/appr_ba38a6f2abe6/card?platform=feishu HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /approvals HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /v1/approvals?status=pending HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /metrics HTTP/1.1" 200 -
+[http] 127.0.0.1 "POST /approvals/appr_ba38a6f2abe6/decide HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /v1/approvals?status=pending HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /v1/approvals?status=approved HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /v1/approvals?status=nope HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /v1/approvals.csv HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /v1/approvals?format=csv HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /v1/approvals HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /v1/approvals?format=nope HTTP/1.1" 400 -
+[http] 127.0.0.1 "GET /v1/approvals.md HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /v1/approvals?format=md HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /v1/approvals.html HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /v1/approvals?format=html HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /metrics HTTP/1.1" 200 -
+shutting down
+exit

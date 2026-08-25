@@ -1,0 +1,16 @@
+{
+  "signature": null,
+  "timestamp": "1786930014",
+  "verified": null,
+  "headers": {
+    "Accept-Encoding": "identity",
+    "Content-Length": "118",
+    "Host": "127.0.0.1:8810",
+    "Content-Type": "application/json; charset=utf-8",
+    "Accept": "application/json",
+    "User-Agent": "cn-work-agent-webhook/0.1.0",
+    "X-Request-Id": "mvp-wh-rid-f1",
+    "X-Webhook-Timestamp": "1786930014",
+    "Connection": "close"
+  }
+}

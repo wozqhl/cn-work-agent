@@ -1,0 +1,3 @@
+mock-webhook-receiver listening on http://127.0.0.1:8810 out=/workspace/oss-cash-lab/bets/f-cn-work-agent/data/webhook-last.json headers=/workspace/oss-cash-lab/bets/f-cn-work-agent/data/webhook-last.headers.json
+127.0.0.1 - "GET /health HTTP/1.1" 200 -
+127.0.0.1 - "POST /hook HTTP/1.1" 200 -

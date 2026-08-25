@@ -1,0 +1,17 @@
+{
+  "signature": "sha256=f71707f1672138100cace1cee2b14bdbf6cb65d2d6f8c57beeb02bc19ebb24da",
+  "timestamp": "1786930019",
+  "verified": true,
+  "headers": {
+    "Accept-Encoding": "identity",
+    "Content-Length": "119",
+    "Host": "127.0.0.1:8812",
+    "Content-Type": "application/json; charset=utf-8",
+    "Accept": "application/json",
+    "User-Agent": "cn-work-agent-webhook/0.1.0",
+    "X-Request-Id": "mvp-hmac-rid-f1",
+    "X-Webhook-Timestamp": "1786930019",
+    "X-Webhook-Signature": "sha256=f71707f1672138100cace1cee2b14bdbf6cb65d2d6f8c57beeb02bc19ebb24da",
+    "Connection": "close"
+  }
+}

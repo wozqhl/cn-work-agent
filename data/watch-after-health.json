@@ -1,0 +1,1 @@
+{"ok": true, "service": "cn-work-agent", "version": "0.1.0", "platforms": ["feishu", "dingtalk", "wecom"], "enabled": ["feishu", "dingtalk", "wecom"], "rate_limit_per_minute": 60, "approval_ttl_seconds": 120, "approvals_max": 2000}

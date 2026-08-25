@@ -1,0 +1,1 @@
+{"id": "appr_0b7637746c04", "status": "rejected", "text": "请审批 TTL expiry test", "platform": "feishu", "created_at": "2026-08-17T01:26:41.436289+00:00", "updated_at": "2026-08-17T01:26:43.351578+00:00", "decision": "reject", "note": "expired", "reason": "expired", "requestId": "cafbd476-74cb-4e60-a375-f25e0eb907d6"}

@@ -1,0 +1,1 @@
+{"id": "appr_76e885e5d5d2", "status": "approved", "text": "请审批 webhook payload test", "platform": "feishu", "created_at": "2026-08-17T01:26:54.083753+00:00", "updated_at": "2026-08-17T01:26:54.112924+00:00", "decision": "approve", "note": "webhook-ok", "reason": null, "requestId": "mvp-wh-rid-f1"}

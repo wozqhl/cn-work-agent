@@ -1,0 +1,9 @@
+# HELP cn_work_agent_approvals_pending Number of pending approvals in the local JSONL
+# TYPE cn_work_agent_approvals_pending gauge
+cn_work_agent_approvals_pending 0
+# HELP cn_work_agent_approvals_decided_total Total approvals decided (approve/reject/TTL expire)
+# TYPE cn_work_agent_approvals_decided_total counter
+cn_work_agent_approvals_decided_total 1
+# HELP cn_work_agent_webhooks_total Total outbound approval-decision webhook attempts
+# TYPE cn_work_agent_webhooks_total counter
+cn_work_agent_webhooks_total 1

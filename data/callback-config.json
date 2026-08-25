@@ -1,0 +1,12 @@
+{
+  "bot_name": "cb-bot",
+  "platforms": [
+    "feishu",
+    "dingtalk",
+    "wecom"
+  ],
+  "feishu": {
+    "callbackSecret": "cbsec_local_mvp"
+  },
+  "approval_ttl_seconds": 86400
+}

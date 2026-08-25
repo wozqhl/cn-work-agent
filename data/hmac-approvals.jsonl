@@ -1,0 +1,1 @@
+{"id": "appr_b5097726fa6b", "status": "rejected", "text": "请审批 hmac webhook test", "platform": "feishu", "created_at": "2026-08-17T01:26:59.728420+00:00", "updated_at": "2026-08-17T01:26:59.756258+00:00", "decision": "reject", "note": "hmac-ok", "reason": null, "requestId": "mvp-hmac-rid-f1"}

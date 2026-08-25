@@ -1,0 +1,30 @@
+cn-work-agent listening on http://127.0.0.1:8816
+platforms=feishu,dingtalk,wecom
+rate_limit_per_minute=60
+approval_ttl_seconds=86400
+approvals_max=2
+cors=deny
+webhook=off
+hmac=off
+watch=off
+GET /health  GET /ready  GET /metrics  GET /openapi.json  GET /v1/platforms  GET /v1/config  GET /approvals  GET /v1/approvals.csv  GET /v1/approvals.md  GET /v1/approvals.html  GET /v1/approvals/{id}/card
+audit=/workspace/oss-cash-lab/bets/f-cn-work-agent/data/approvals-max-audit.jsonl
+approvals=/workspace/oss-cash-lab/bets/f-cn-work-agent/data/approvals-max.jsonl
+[http] 127.0.0.1 "GET /health HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /health HTTP/1.1" 200 -
+[http] 127.0.0.1 "POST /webhook/feishu HTTP/1.1" 200 -
+[http] 127.0.0.1 "POST /webhook/feishu HTTP/1.1" 200 -
+[http] 127.0.0.1 "POST /webhook/feishu HTTP/1.1" 200 -
+[http] 127.0.0.1 "POST /approvals/appr_ae09b79caedd/decide HTTP/1.1" 200 -
+[http] 127.0.0.1 "POST /approvals/appr_f098b387aed9/decide HTTP/1.1" 200 -
+[http] 127.0.0.1 "POST /approvals/appr_6a8ac2628987/decide HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /approvals?limit=10 HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /v1/approvals.csv HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /v1/approvals.md HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /v1/approvals.html HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /approvals/appr_ae09b79caedd HTTP/1.1" 404 -
+[http] 127.0.0.1 "GET /v1/approvals/appr_ae09b79caedd/card?platform=feishu HTTP/1.1" 404 -
+[http] 127.0.0.1 "GET /approvals/appr_6a8ac2628987 HTTP/1.1" 200 -
+[http] 127.0.0.1 "GET /v1/approvals/appr_6a8ac2628987/card?platform=feishu HTTP/1.1" 200 -
+shutting down
+exit
